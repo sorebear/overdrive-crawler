@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
+  "name": "overdrive-crawler",
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Soren Baird",
   "dependencies": {
+    "axios": "^0.19.2",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
@@ -19,6 +19,8 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "concurrently": "^5.1.0",
+    "netlify-lambda": "^1.6.3",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -26,8 +28,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "netlify-lambda build functions-src && gatsby build",
     "develop": "gatsby develop",
+    "lambda": "netlify-lambda build functions-src",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
